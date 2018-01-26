@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="page-header text-center">
     <div class="container">
-        <h1 style="color:#333;text-shadow: 2px 2px 1px #aaa;">Instagram Profile Photo Viewer</h1>      
+        <h1 style="color:#333;text-shadow: 2px 2px 1px #aaa;">Instagram Profile Photo Viewer</h1>
         <p style="color:#777;">View larger instagram profile photos with InstaPPV.</p>
     </div>
 </div>
@@ -25,25 +25,25 @@
 <div style="clear:both;"></div>
 <div class="container text-center">
     <?php
-    error_reporting(0); 
+    error_reporting(0);
     require "simple_html_dom.php";
     if (isset($_POST['submittt']) AND !empty($_POST['profileid'])) {
         if (!preg_match('/[^abcdefghijklmnoprstuvyzxwq_.0123456789ABCDEFGHIJKLMNOPRSTUVYZXWQ]/', $_POST['profileid'])) {
             if($html = str_get_html(file_get_contents(htmlspecialchars("https://www.instagram.com/".$_POST['profileid'])))) {
                 foreach($html->find('meta[property=og:image]') as $element) {
-                    //  echo $element->content. "<br>";
-                    $link = str_replace("s150x150/","",$element->content);
+                    $link = explode("/",$element->content);
+                    $newlink = $link[0]."//".$link[2]."/".$link[3]."/".$link[4]."//".$link[6]."/".$link[8];
                     echo "<div class=\"alert alert-success\">
                     <strong>Success!</strong> The Photo Was Successfully Displayed.
                     </div>";
-                    echo "<img src=\"".$link."\" class=\"img-responsive\" style=\"display: inline-block;margin-bottom:20px;\">";
+                    echo "<img src=\"".$newlink."\" class=\"img-responsive\" style=\"display: inline-block;margin-bottom:20px;\">";
                 }
             }
             else{
                 echo"<div class=\"alert alert-danger\">
                 <strong>Warning!</strong> No Such User.
                 </div>";
-            }    
+            }
         }
         else{
             echo "<div class=\"alert alert-danger\">
