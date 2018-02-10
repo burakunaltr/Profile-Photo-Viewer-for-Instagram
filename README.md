@@ -6,7 +6,7 @@ Script normalde 150x150 pixel büyüklüğünde gösterilen Instagram profil fot
 
 Bunu nasıl yapıyor derseniz;
 
-Sağ tıklayıp 'Resme Bak' dediğinizde karşılaştığınız linkten 's150x150/' parametresini siliyor.
+Sağ tıklayıp 'Resme Bak' dediğinizde karşılaştığınız linkten 's150x150/' parametresini ve iki üstteki dizini siliyor.
 
 > Inputtan aldığım veriyi regexe tabi tutup Instagram kullanıcı adında olmayan karakterler girildiyse uyarı basıyorum. Her şey normal ama öyle bir hesap yoksa kullanıcıya bununla ilgili bilgi veriyorum.
 
