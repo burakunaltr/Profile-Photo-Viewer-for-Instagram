@@ -32,7 +32,13 @@
             if($html = str_get_html(file_get_contents(htmlspecialchars("https://www.instagram.com/".$_POST['profileid'])))) {
                 foreach($html->find('meta[property=og:image]') as $element) {
                     $link = explode("/",$element->content);
-                    $newlink = $link[0]."//".$link[2]."/".$link[3]."/".$link[4]."//".$link[6]."/".$link[8];
+                    $newlink = $link[0]."//".$link[2]."/".$link[3]."/cf1eaaa749692a0d0180d3d8e5dc1887//".$link[6]."/";
+                    if ($link[7]!="s150x150") {
+                        $newlink .= $link[7];
+                    }
+                    else{
+                        $newlink .= $link[8];
+                    }
                     echo "<div class=\"alert alert-success\">
                     <strong>Success!</strong> The Photo Was Successfully Displayed.
                     </div>";
