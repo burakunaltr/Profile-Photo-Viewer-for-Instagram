@@ -1,5 +1,8 @@
 # Profile Photo Viewer for Instagram
 
+
+!! 23 Mart 2018 itibariyle Instagram url yapısını güncelledi. Scriptin oluşturduğu linkte dosya hala bulunuyor olsa bile 403 hatasıyla karşılaşıyoruz. Tarih itibariyle script çalışmıyor.. 
+
 PHP öğrenmeye başlamışken ufak bir script yazmak istedim.
 
 Script normalde 150x150 pixel büyüklüğünde gösterilen Instagram profil fotoğraflarını büyütmeye yarıyor.
